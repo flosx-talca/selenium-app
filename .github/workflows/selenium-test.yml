@@ -15,11 +15,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Setup Chrome
-        uses: browser-actions/setup-chrome@latest
-
-      - name: Setup ChromeDriver
-        uses: nanasess/setup-chromedriver@master
+  
 
       - name: Install dependencies
         run: |
