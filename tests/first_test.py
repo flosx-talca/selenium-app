@@ -19,3 +19,5 @@ def test_page_title():
     assert titleElement.text == "Build and ship software on a single, collaborative platform"
     
     browser.quit()
+    
+    #https://www.selenium.dev/selenium/web/web-form.html
