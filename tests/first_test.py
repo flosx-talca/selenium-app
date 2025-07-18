@@ -8,7 +8,7 @@ def test_page_title():
     options = webdriver.ChromeOptions()
     options.add_argument('--headless=new')
     options.add_argument('--no-sandbox')
-    options.add_argument('--disable-dev-shm-usage')#service=Service("/Users/orozas/Adalid/selenium/chrome/chromedriver")
+    options.add_argument('--user-data-dir=/tmp/chrome-profile')
     browser.get("https://github.com")
     
     titleElement = browser.find_element(By.ID,"hero-section-brand-heading")
