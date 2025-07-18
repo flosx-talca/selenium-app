@@ -26,7 +26,6 @@ jobs:
       - name: Run tests and generate XML + HTML reports
         run: |
           pytest --maxfail=1 --disable-warnings -q \
-                 
                  --html=report.html --self-contained-html
 
       - name: Upload HTML Report
