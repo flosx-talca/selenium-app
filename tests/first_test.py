@@ -5,9 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 
 def test_page_title():
-    options = Options()
-    options.headless = True  # Run in headless mode if desired
-    browser = webdriver.Chrome(options) #service=Service("/Users/orozas/Adalid/selenium/chrome/chromedriver")
+    browser = webdriver.Chrome() #service=Service("/Users/orozas/Adalid/selenium/chrome/chromedriver")
     browser.get("https://github.com")
     
     titleElement = browser.find_element(By.ID,"hero-section-brand-heading")
