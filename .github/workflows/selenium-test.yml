@@ -1,26 +1,36 @@
 name: Run Pytest
 on: [push]
+
 jobs:
   test:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.12"
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          pip install webdriver-manager  # Asegura tener webdriver-manager para chromedriver
+
       - name: Run tests
         run: |
           pytest --maxfail=1 --disable-warnings -q --junitxml=test-results.xml
+        env:
+          # Evitar problemas con Chrome sandbox en GitHub Actions
+          CHROME_BIN: /usr/bin/google-chrome
+          DISPLAY: :99
+
       - name: Upload test results
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: pytest-results
           path: test-results.xml
-
