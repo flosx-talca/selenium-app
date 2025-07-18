@@ -5,11 +5,12 @@ from webdriver_manager.chrome import ChromeDriverManager
 #from webdriver_manager.chrome import ChromeDriverManager    
 
 def test_page_title():
-    browser = webdriver.Chrome()
-    options = webdriver.ChromeOptions()
+    #browser = webdriver.Chrome()
+    browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+    options = Options()
     options.add_argument('--headless=new')
     options.add_argument('--no-sandbox')
-    options.add_argument('--user-data-dir=/tmp/chrome-profile')
+    options.add_argument('--disable-dev-shm-usage')
     browser.get("https://github.com")
     
     titleElement = browser.find_element(By.ID,"hero-section-brand-heading")
