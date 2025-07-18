@@ -26,15 +26,8 @@ jobs:
       - name: Run tests and generate XML + HTML reports
         run: |
           pytest --maxfail=1 --disable-warnings -q \
-                 --junitxml=test-results.xml \
+                 
                  --html=report.html --self-contained-html
-
-      - name: Upload XML test results
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: pytest-xml-results
-          path: test-results.xml
 
       - name: Upload HTML Report
         uses: actions/upload-artifact@v4
